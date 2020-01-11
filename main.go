@@ -19,11 +19,11 @@ func isPrime(number int) string {
 	} else {
 		// if less than prime, it is prime, otherwise,
 		// check if it is even, ends in 5 or divisible by 3 it is not prime
-		if number <= 5 {
+		if number <= 5 && number != 4 {
 			return prime
 		} else if number%10%2 == 0 || number%10 == 5 {
 			return noPrime
-		} else if number%100%3 == 0 {
+		} else if number%3 == 0 {
 			return noPrime
 		} else {
 
@@ -33,7 +33,7 @@ func isPrime(number int) string {
 			for i := 7; float64(i) >= highestCheck; i += 2 {
 				// if multiple of 3, continue otherwise
 				// if it is module the index, it is not prime
-				if i%100%3 == 0 {
+				if i%3 == 0 {
 					continue
 				} else if number%i == 0 {
 					return noPrime
